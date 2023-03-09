@@ -1,8 +1,10 @@
+import MainLayout from "../components/MainLayout";
+
 const Bookmarks = () => {
   return (
-    <div>
-      Избранное
-    </div>
+    <MainLayout>
+      <div>Избранное</div>
+    </MainLayout>
   );
 }
 

@@ -1,3 +1,12 @@
+:root {
+  --bg: #1E1E1E;
+  --bg-light: #252525;
+  --bg-light-fresh: #313131;
+  --text: #EBEBEB;
+  --grey: #8B8B8B;
+  --grey-dark: #606060;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +14,6 @@
 }
 
 body {
-  background-color: #1E1E1E;
+  background-color: var(--bg);
+  color: var(--text);
 }
