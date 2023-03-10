@@ -47,7 +47,9 @@
           color: var(--grey);
         }
         &__txt {
-
+          &::first-letter {
+            text-transform: capitalize;
+          }
         }
       }
     }

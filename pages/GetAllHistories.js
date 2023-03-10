@@ -20,6 +20,7 @@ export const GET_ALL_HISTORIES = gql`
             number
           }
           active
+          first_flight
         }
       }
     }
