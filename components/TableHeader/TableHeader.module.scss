@@ -1,0 +1,8 @@
+.tableHeader {
+  display: flex;
+  padding: 0 24px 8px 24px;
+  &__txt {
+    width: 50%;
+    color: var(--grey-dark);
+  }
+}

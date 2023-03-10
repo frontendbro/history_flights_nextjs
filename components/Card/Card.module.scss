@@ -4,4 +4,52 @@
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 16px;
+  &-mission {
+    width: 50%;
+    &__title {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+  &-rocket {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1;
+    &-wrap {
+      width: 100%;
+      margin-right: 56px;
+    }
+    &-title {
+      display: flex;
+      align-items: center;
+      &__txt {
+        font-size: 32px;
+        line-height: 38px;
+        margin-right: 24px;
+      }
+      &__label {
+        background-color: var(--text);
+        color: var(--bg-light);
+        border-radius: 8px;
+        padding: 4px;
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+    &-list {
+      list-style: none;
+      &-item {
+        display: flex;
+        padding: 6px 0;
+        border-bottom: 1px solid var(--grey-dark);
+        &__label {
+          color: var(--grey);
+        }
+        &__txt {
+
+        }
+      }
+    }
+  }
 }
