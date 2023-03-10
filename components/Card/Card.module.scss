@@ -6,9 +6,31 @@
   margin-bottom: 16px;
   &-mission {
     width: 50%;
+    padding-right: 40px;
     &__title {
       font-size: 32px;
       line-height: 38px;
+      margin-bottom: 14px;
+    }
+    &__date {
+      font-size: 16px;
+      line-height: 19px;
+      margin-bottom: 14px;
+    }
+    &__label {
+      font-size: 16px;
+      line-height: 19px;
+      color: var(--grey-dark);
+      margin-bottom: 6px;
+    }
+    &__details {
+      margin-bottom: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-overflow: -o-ellipsis-lastline;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;  
+      -webkit-line-clamp: 5;
     }
   }
   &-rocket {
@@ -23,6 +45,7 @@
     &-title {
       display: flex;
       align-items: center;
+      margin-bottom: 24px;
       &__txt {
         font-size: 32px;
         line-height: 38px;
@@ -39,11 +62,13 @@
     }
     &-list {
       list-style: none;
+      margin-bottom: 24px;
       &-item {
         display: flex;
         padding: 6px 0;
         border-bottom: 1px solid var(--grey-dark);
         &__label {
+          width: 50%;
           color: var(--grey);
         }
         &__txt {
@@ -52,6 +77,9 @@
           }
         }
       }
+    }
+    &__link {
+      color: var(--text);
     }
   }
 }

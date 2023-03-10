@@ -1,5 +1,6 @@
 import styles from './Card.module.scss'
 import dayjs from 'dayjs';
+import Link from 'next/link';
 
 const Card = ({ launch }) => {
   return (
@@ -11,8 +12,17 @@ const Card = ({ launch }) => {
         <div className={styles["card-mission__date"]}>
           {dayjs(launch?.launch_date_utc).format("YYYY MMMM DD")}
         </div>
-        <div>Details</div>
-        <div>{launch?.details}</div>
+        <div className={styles["card-mission__label"]}>Details</div>
+        <div className={styles["card-mission__details"]}>{launch?.details}</div>
+        {launch?.links?.presskit ? (
+          <Link
+            className={styles["card-rocket__link"]}
+            href={launch?.links?.presskit}
+            target="_blank"
+          >
+            Press Kit
+          </Link>
+        ) : null}
       </div>
       <div className={styles["card-rocket"]}>
         <div className={styles["card-rocket-wrap"]}>
@@ -60,6 +70,13 @@ const Card = ({ launch }) => {
               </div>
             </li>
           </ul>
+          <Link
+            className={styles["card-rocket__link"]}
+            href={launch?.links?.wikipedia}
+            target="_blank"
+          >
+            Read more on Wikipedia
+          </Link>
         </div>
         <button>star</button>
       </div>

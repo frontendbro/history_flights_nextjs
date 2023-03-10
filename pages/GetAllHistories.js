@@ -8,6 +8,7 @@ export const GET_ALL_HISTORIES = gql`
       launch_date_utc
       links {
         wikipedia
+        presskit
       }
       mission_name
       rocket {
