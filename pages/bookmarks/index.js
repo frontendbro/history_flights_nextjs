@@ -1,22 +1,18 @@
 import { useState, useEffect } from "react";
-import { graphqlClient } from "../../libs/graphqlClient";
-import { GET_ALL_HISTORIES } from "../GetAllHistories";
-
-import MainLayout from "../../components/MainLayout";
 import Card from "../../components/Card";
+import MainLayout from "../../components/MainLayout";
 import TableHeader from "../../components/TableHeader";
+import { graphqlClient } from "../../libs/graphqlClient";
 
+import { GET_ALL_HISTORIES } from "../GetAllHistories.js";
 import { useQuery, useLazyQuery, InMemoryCache } from "@apollo/client";
 
-
-const Bookmarks = () => {
-  // const [state, setState] = useState([]);
+const Index = ({ serverData }) => {
   const [selected, setSelect] = useState([]);
 
-  // const { data: initData, loading: initLoading } = useQuery(GET_ALL_HISTORIES, {
-  //   variables: { limit: 100 },
-  // });
-  // console.log("initData", initData);
+  const { data: initData, loading: initLoading } = useQuery(GET_ALL_HISTORIES, {
+    variables: { limit: 2 },
+  });
 
   // localStorage
   useEffect(() => {
@@ -57,4 +53,4 @@ const Bookmarks = () => {
   );
 };
 
-export default Bookmarks;
+export default Index;

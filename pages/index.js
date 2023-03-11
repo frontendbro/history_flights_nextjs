@@ -15,7 +15,7 @@ const Index = ({ serverData }) => {
   });
 
   const [getMore, {data: moreData}] = useLazyQuery(GET_ALL_HISTORIES, {
-    variables: { limit: 10 },
+    variables: { limit: 10, offset: 2 },
   });
   
 
@@ -48,6 +48,14 @@ const Index = ({ serverData }) => {
     <MainLayout counter={selected.length}>
       <TableHeader />
       {initData?.launchesPast.map((launch, idx) => (
+        <Card
+          launch={launch}
+          key={`${idx}-${launch.id}`}
+          updateStatusState={updateStatus}
+          star={getStatus(launch.id)}
+        ></Card>
+      ))}
+      {moreData?.launchesPast.map((launch, idx) => (
         <Card
           launch={launch}
           key={`${idx}-${launch.id}`}
