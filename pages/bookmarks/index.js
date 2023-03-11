@@ -11,8 +11,12 @@ const Index = ({ serverData }) => {
   const [selected, setSelect] = useState([]);
 
   const { data: initData, loading: initLoading } = useQuery(GET_ALL_HISTORIES, {
-    variables: { limit: 2 },
+    variables: {
+      limit: 10
+    },
   });
+
+  const resData = initData?.launchesPast.filter(item => selected.includes(item.id)) || []
 
   // localStorage
   useEffect(() => {
@@ -41,7 +45,7 @@ const Index = ({ serverData }) => {
   return (
     <MainLayout counter={selected.length}>
       <TableHeader />
-      {initData?.launchesPast.map((launch, idx) => (
+      {resData.map((launch, idx) => (
         <Card
           launch={launch}
           key={`${idx}-${launch.id}`}

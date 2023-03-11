@@ -14,7 +14,7 @@ const Index = ({ serverData }) => {
     variables: { limit: 2 },
   });
 
-  const [getMore, {data: moreData}] = useLazyQuery(GET_ALL_HISTORIES, {
+  const [getMore, {data: moreData, loading: moreLoading}] = useLazyQuery(GET_ALL_HISTORIES, {
     variables: { limit: 10, offset: 2 },
   });
   
@@ -64,7 +64,7 @@ const Index = ({ serverData }) => {
         ></Card>
       ))}
       <button className="btn-more" onClick={getMore}>
-        {initLoading ? "loading..." : "More"}
+        {initLoading || moreLoading ? "loading..." : "More"}
       </button>
     </MainLayout>
   );
@@ -76,7 +76,7 @@ export const getServerSideProps = async () => {
   const client = graphqlClient();
   const { data } = await client.query({
     query: GET_ALL_HISTORIES,
-    variables: { limit: 2 },
+    variables: { limit: 10 },
   });
 
   return {
