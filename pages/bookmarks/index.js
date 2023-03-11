@@ -2,15 +2,14 @@ import { useState, useEffect } from "react";
 import Card from "../../components/Card";
 import MainLayout from "../../components/MainLayout";
 import TableHeader from "../../components/TableHeader";
-import { graphqlClient } from "../../libs/graphqlClient";
 
 import { GET_ALL_HISTORIES } from "../GetAllHistories.js";
-import { useQuery, useLazyQuery, InMemoryCache } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
-const Index = ({ serverData }) => {
+const Index = () => {
   const [selected, setSelect] = useState([]);
 
-  const { data: initData, loading: initLoading } = useQuery(GET_ALL_HISTORIES, {
+  const { data: initData } = useQuery(GET_ALL_HISTORIES, {
     variables: {
       limit: 10
     },

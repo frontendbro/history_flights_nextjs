@@ -5,19 +5,17 @@ import TableHeader from "../components/TableHeader";
 import { graphqlClient } from "../libs/graphqlClient";
 
 import { GET_ALL_HISTORIES } from "./GetAllHistories.js";
-import { useQuery, useLazyQuery, InMemoryCache } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 
-const Index = () => {
+const Index = ({ serverData }) => {
   const [selected, setSelect] = useState([]);
 
-  const {data: initData, loading: initLoading} = useQuery(GET_ALL_HISTORIES, {
-    variables: { limit: 2 },
-  });
-
-  const [getMore, {data: moreData, loading: moreLoading}] = useLazyQuery(GET_ALL_HISTORIES, {
-    variables: { limit: 10, offset: 2 },
-  });
-  
+  const [getMore, { data: moreData, loading: moreLoading }] = useLazyQuery(
+    GET_ALL_HISTORIES,
+    {
+      variables: { limit: 10, offset: 2 },
+    }
+  );
 
   // localStorage
   useEffect(() => {
@@ -25,7 +23,6 @@ const Index = () => {
     if (selected) {
       setSelect(selected);
     }
-
   }, []);
 
   useEffect(() => {
@@ -33,7 +30,7 @@ const Index = () => {
   }, [selected]);
 
   function getStatus(id) {
-    return selected.includes(id)
+    return selected.includes(id);
   }
 
   const updateStatus = (id) => {
@@ -47,7 +44,7 @@ const Index = () => {
   return (
     <MainLayout counter={selected.length}>
       <TableHeader />
-      {initData?.launchesPast.map((launch, idx) => (
+      {serverData.map((launch, idx) => (
         <Card
           launch={launch}
           key={`${idx}-${launch.id}`}
@@ -64,7 +61,7 @@ const Index = () => {
         ></Card>
       ))}
       <button className="btn-more" onClick={getMore}>
-        {initLoading || moreLoading ? "loading..." : "More"}
+        {moreLoading ? "loading..." : "More"}
       </button>
     </MainLayout>
   );
@@ -81,7 +78,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      serverData: data,
+      serverData: data.launchesPast.slice(0, 2),
     },
   };
 };
