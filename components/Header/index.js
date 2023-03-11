@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 const Header = ({ counter }) => {
   const router = useRouter();
-  console.log(router);
   return (
     <header className={styles.header}>
       <h1>SpaceX Launches</h1>

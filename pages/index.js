@@ -7,7 +7,7 @@ import { graphqlClient } from "../libs/graphqlClient";
 import { GET_ALL_HISTORIES } from "./GetAllHistories.js";
 import { useQuery, useLazyQuery, InMemoryCache } from "@apollo/client";
 
-const Index = ({ serverData }) => {
+const Index = () => {
   const [selected, setSelect] = useState([]);
 
   const {data: initData, loading: initLoading} = useQuery(GET_ALL_HISTORIES, {
@@ -81,7 +81,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      serverData: data
+      serverData: data,
     },
   };
 };
