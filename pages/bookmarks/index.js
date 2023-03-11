@@ -6,22 +6,17 @@ import MainLayout from "../../components/MainLayout";
 import Card from "../../components/Card";
 import TableHeader from "../../components/TableHeader";
 
+import { useQuery, useLazyQuery, InMemoryCache } from "@apollo/client";
 
 
 const Bookmarks = () => {
-  const [state, setState] = useState([]);
+  // const [state, setState] = useState([]);
   const [selected, setSelect] = useState([]);
 
-  const client = graphqlClient();
-  const { data } = client.query({
-    query: GET_ALL_HISTORIES,
-    variables: {
-      filter: {
-      
-    }},
-  });
-
-  console.log("data", data);
+  // const { data: initData, loading: initLoading } = useQuery(GET_ALL_HISTORIES, {
+  //   variables: { limit: 100 },
+  // });
+  // console.log("initData", initData);
 
   // localStorage
   useEffect(() => {
@@ -30,10 +25,6 @@ const Bookmarks = () => {
       setSelect(selected);
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("selected", JSON.stringify(selected));
-  }, [selected]);
 
   useEffect(() => {
     localStorage.setItem("selected", JSON.stringify(selected));
@@ -54,7 +45,7 @@ const Bookmarks = () => {
   return (
     <MainLayout counter={selected.length}>
       <TableHeader />
-      {state?.map((launch, idx) => (
+      {initData?.launchesPast.map((launch, idx) => (
         <Card
           launch={launch}
           key={`${idx}-${launch.id}`}

@@ -1,14 +1,34 @@
 import styles from "./Header.module.scss";
 import Link from "next/link";
-import MyLink from "../MyLink";
+import { useRouter } from "next/router";
 
-const Header = ({counter}) => {
+const Header = ({ counter }) => {
+  const router = useRouter();
+  console.log(router);
   return (
     <header className={styles.header}>
       <h1>SpaceX Launches</h1>
       <nav>
-        <MyLink href="/" txt="Show all" className="myLink_active" />
-        <MyLink href="/bookmarks" txt="Bookmarks" />
+        <Link
+          className={
+            router.route === "/"
+              ? `${styles["header-link_active"]} ${styles["header-link"]}`
+              : styles["header-link"]
+          }
+          href="/"
+        >
+          Show all
+        </Link>
+        <Link
+          className={
+            router.route === "/bookmarks"
+              ? `${styles["header-link_active"]} ${styles["header-link"]}`
+              : styles["header-link"]
+          }
+          href="/bookmarks"
+        >
+          Bookmarks
+        </Link>
         <span>{counter ? counter : 0}</span>
       </nav>
     </header>

@@ -5,6 +5,7 @@
   --text: #EBEBEB;
   --grey: #8B8B8B;
   --grey-dark: #606060;
+  --grey-light: #313131;
 }
 
 * {
@@ -17,4 +18,16 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
+}
+
+.btn-more {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 16px;
+  border: none;
+  font-size: 24px;
+  line-height: 29px;
+  background-color: var(--grey-light);
+  color: var(--text);
+  cursor: pointer;
 }
