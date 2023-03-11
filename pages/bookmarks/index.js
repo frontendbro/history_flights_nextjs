@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
+import { graphqlClient } from "../../libs/graphqlClient";
+import { GET_ALL_HISTORIES } from "../GetAllHistories";
+
 import MainLayout from "../../components/MainLayout";
+import Card from "../../components/Card";
+import TableHeader from "../../components/TableHeader";
+
+
 
 const Bookmarks = () => {
+  const [state, setState] = useState([]);
   const [selected, setSelect] = useState([]);
 
   const client = graphqlClient();

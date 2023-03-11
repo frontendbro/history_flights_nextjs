@@ -18,7 +18,7 @@ const Index = ({ serverData }) => {
       query: GET_ALL_HISTORIES,
       variables: { limit: 10 },
     });
-    setState((oldState) => [...oldState, ...data.launchesPast]);
+    setState(() => [...data.launchesPast]);
   }
   
 
