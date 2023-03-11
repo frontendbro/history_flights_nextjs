@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client"
 
 export const GET_ALL_HISTORIES = gql`
-  query ExampleQuery($limit: Int, $offset: Int) {
-    launchesPast(limit: $limit, offset: $offset) {
+  query ExampleQuery($limit: Int, $offset: Int, $find: LaunchFind) {
+    launchesPast(limit: $limit, offset: $offset, find: $find) {
       id
       details
       launch_date_utc

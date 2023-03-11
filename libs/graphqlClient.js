@@ -6,5 +6,5 @@ export const graphqlClient = () => new ApolloClient({
   link: new HttpLink({
     uri: "https://spacex-production.up.railway.app/",
   }),
-  ssrMode: typeof window === "undefined",
+  // ssrMode: typeof window === "undefined",
 });
