@@ -4,7 +4,7 @@ import Header from "../Header";
 
 const MainLayout = ({ children, counter }) => {
   return (
-    <div className={styles.mainLayout}>
+    <div className={styles["main-layout"]}>
       <Head>
         <meta keywords="history flights apollo"></meta>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
@@ -19,7 +19,7 @@ const MainLayout = ({ children, counter }) => {
         ></link>
       </Head>
       <Header counter={counter} />
-      <div>{children}</div>
+      <div className={styles["main-layout-wrapper"]}>{children}</div>
     </div>
   );
 };

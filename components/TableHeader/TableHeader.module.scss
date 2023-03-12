@@ -5,4 +5,7 @@
     width: 50%;
     color: var(--grey-dark);
   }
+  @media (max-width:768px) {
+    display: none;
+  }
 }

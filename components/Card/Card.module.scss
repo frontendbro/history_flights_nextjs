@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   display: flex;
   background-color: var(--bg-light);
   border-radius: 16px;
@@ -46,6 +47,7 @@
       display: flex;
       align-items: center;
       margin-bottom: 24px;
+      position: relative;
       &__txt {
         font-size: 32px;
         line-height: 38px;
@@ -58,6 +60,10 @@
         padding: 4px;
         font-size: 12px;
         line-height: 14px;
+      }
+      &__icon {
+        position: absolute;
+        left: -24px;
       }
     }
     &-list {
@@ -87,5 +93,22 @@
     padding: 0;
     background: none;
     cursor: pointer;
+  }
+  @media (max-width:768px) {
+    flex-direction: column;
+    &-mission {
+      width: 100%;
+      margin-bottom: 48px;
+    } 
+    &-rocket-title__icon {
+      position: relative;
+      left: 0;
+      margin-right: 8px;
+    }
+    &-star {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
   }
 }

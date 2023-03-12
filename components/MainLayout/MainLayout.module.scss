@@ -1,7 +1,12 @@
-.mainLayout {
+.main-layout {
   display: flex;
   flex-direction: column;
   max-width: 1032px;
   margin: 0 auto;
   padding-bottom: 40px;
+  &-wrapper {
+    @media (max-width:768px) {
+      padding: 0 40px;
+    }
+  }
 }
